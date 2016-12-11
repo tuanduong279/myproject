@@ -1,0 +1,35 @@
+{% extends "::layout/layout.html.twig" %}
+
+{% block title %}My products{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <div class="row">
+
+        {% include "::modUser/navigator.html.twig" %}
+
+        <div class="span9">
+
+            <ul class="thumbnails">
+              {% for item in products %}
+                <li class="span3">
+                    <div class="thumbnail">
+                        <img src="../img/holder.png" alt="DevAndClick" width="300" height="300">
+                        <div class="caption">
+                            <h4>{{ item.name }}</h4>
+                            <p>{{ item.price }} €</p>
+                            
+                            <p>{{ item.subcategory.name }}</p>
+                            <p>{{ item.subcategory.category.name }}</p>
+                            <a class="btn btn-primary" href="{{ path('product_show', {'id': item.id}) }}">Plus d'infos</a>
+                            
+                        </div>
+                    </div>
+                </li>
+                {%endfor%}
+            </ul>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
