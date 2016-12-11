@@ -1,0 +1,21 @@
+<div class="span3">   
+    
+    <div class="well">
+        <ul class="nav nav-list">
+            <li class="nav-header">Category</li>
+           
+            {% for item in categories %}
+             <li class="active">
+                <a href="{{ path('category_show', {'id': item.id}) }}">{{ item.name }}</a>
+                <ul>
+                {% for subitem in subcategories %}
+                    {%if(subitem.category.id == item.id)%}
+                        <li> <a href="{{ path('subcategory_show', {'id': subitem.id}) }}">{{ subitem.name }}</a></li>
+                    {%endif%}
+                {%endfor%}
+                </ul>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+</div>

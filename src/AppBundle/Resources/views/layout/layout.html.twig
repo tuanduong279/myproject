@@ -3,10 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+                <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+                <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}" />
+                <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+                <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+            
         {% block stylesheets %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
-        {% endblock %}
+{% endblock %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -31,10 +34,11 @@
             </div>
         </div>
         {% block body %}{% endblock %}
-        {% block javascripts %}
-            {% javascripts '@AppBundle/Resources/views/js/*' %}
-                <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        {% endblock %}
+        
+            
+                <script src="{{ asset('js/jquery-1.10.0.min.js') }}"></script>
+                <script src="{{ asset('js/bootstrap.js') }}"></script>
+                        
+            {% block javascripts %}{% endblock %}
     </body>
 </html>
